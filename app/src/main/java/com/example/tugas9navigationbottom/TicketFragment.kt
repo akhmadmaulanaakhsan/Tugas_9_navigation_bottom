@@ -1,6 +1,7 @@
 package com.example.tugas9navigationbottom
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +32,27 @@ class TicketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d("CheckoutFragment", "CheckoutFragment created")
         _binding = FragmentTicketBinding.inflate(inflater, container, false)
+
+        binding.btnBuyTicket.setOnClickListener {
+            Log.d("TicketFragment", "Button Buy Ticket clicked")
+            // Navigasikan ke CheckoutFragment saat tombol Buy Ticket ditekan
+            findNavController().navigate(R.id.action_ticketFragment_to_checkoutFragment)
+        }
+
         return binding.root
     }
+
+    //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+      //  super.onViewCreated(view, savedInstanceState)
+        //with(binding) {
+          ///  val action = HomeFragmentDirections.actionTicketFragmentToCheckoutFragment()
+            //btnBuyTicket.setOnClickListener {
+              //  findNavController().navigate(action)
+           // }
+        //}
+    //}
 
     //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     //    super.onViewCreated(view, savedInstanceState)
